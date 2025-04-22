@@ -1,4 +1,4 @@
-module github.com/pretty66/iptables-web
+module github.com/bastionbot/iptables-web
 
 go 1.16
 
