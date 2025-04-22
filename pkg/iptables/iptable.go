@@ -30,7 +30,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/pretty66/iptables-web/utils"
+	"github.com/bastionbot/iptables-web/utils"
 )
 
 type Protocol byte

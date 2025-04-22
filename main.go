@@ -33,8 +33,8 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/pretty66/iptables-web/pkg/iptables"
-	"github.com/pretty66/iptables-web/utils"
+	"github.com/bastionbot/iptables-web/pkg/iptables"
+	"github.com/bastionbot/iptables-web/utils"
 )
 
 //go:embed web/index.html
