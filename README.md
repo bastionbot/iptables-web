@@ -1,38 +1,38 @@
-# iptables管理程序
+# iptables management program
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/pretty66/iptables-web)](https://github.com/pretty66/iptables-web/blob/master/go.mod)
-### iptables-web是一个轻量级的iptables web管理界面程序，支持二进制文件直接运行及docker快速部署安装；整个程序打包完成后只有一个二进制文件，适合日常运维使用。
+### iptables-web is a lightweight iptables web management interface program that supports binary file direct operation and docker fast deployment and installation; the entire program is packaged as only one binary file, which is suitable for daily operation and maintenance.
 ![web](./docs/iptables-web.png)
 
-## 目录
-- [安装](#安装)
+## Directory
+- [Installation](#Installation)
 - [License](#License)
 
-## 安装
-### docker部署安装（推荐）
-以docker形式部署注意要加两个参数`--privileged=true`，`--net=host`以特权模式运行，可以管理宿主机iptables规则
+## Installation
+### Docker deployment installation (recommended)
+When deploying in docker, please note that you need to add two parameters `--privileged=true` and `--net=host` to run in privileged mode, which can manage the host iptables rules
 ```shell
 docker run -d \
-  --name iptables-web \
-  --privileged=true \
-  --net=host \
-  -e "IPT_WEB_USERNAME=admin" \
-  -e "IPT_WEB_PASSWORD=admin" \
-  -e "IPT_WEB_ADDRESS=:10001" \
-  -p 10001:10001 \
-  pretty66/iptables-web:1.1.1 
+--name iptables-web \
+--privileged=true \
+--net=host \
+-e "IPT_WEB_USERNAME=admin" \
+-e "IPT_WEB_PASSWORD=admin" \
+-e "IPT_WEB_ADDRESS=:10001" \
+-p 10001:10001 \
+pretty66/iptables-web:1.1.1
 ```
-- `IPT_WEB_USERNAME`: 网页认证用户名，默认：admin
-- `IPT_WEB_PASSWORD`: 网页认证密码，默认：admin
-- `IPT_WEB_ADDRESS`: 程序监听地址地址，默认：10001
+- `IPT_WEB_USERNAME`: Web authentication username, default: admin
+- `IPT_WEB_PASSWORD`: Web authentication password, default: admin
+- `IPT_WEB_ADDRESS`: Program listening address, default: 10001
 
-### 直接安装
+### Direct installation
 ```shell
 git clone https://github.com/pretty66/iptables-web.git
 cd iptables-web
 make
-# 直接运行
+# Direct operation
 ./iptables-server -a :10001 -u admin -p admin
-# 后台运行
+# Background operation
 nohup ./iptables-server -a :10001 -u admin -p admin > /dev/null 2>&1 &
 ```
 

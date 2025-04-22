@@ -72,7 +72,7 @@ func init() {
 	if v := os.Getenv("IPT_WEB_ADDRESS"); len(v) > 0 {
 		address = v
 	}
-	// 验证表名链名，防止注入
+	// Verify table name chain name to prevent injection
 	verifyArgs, _ = regexp.Compile(`^[0-9A-z-_]+$`)
 }
 
@@ -211,12 +211,12 @@ func argsFilter(handler http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		table := r.FormValue("table")
 		if len(table) > 0 && !verifyArgs.MatchString(table) {
-			http.Error(w, "参数错误!", 200)
+			http.Error(w, "Parameter error!", 200)
 			return
 		}
 		chain := r.FormValue("chain")
 		if len(chain) > 0 && !verifyArgs.MatchString(chain) {
-			http.Error(w, "参数错误!", 200)
+			http.Error(w, "Parameter error!", 200)
 			return
 		}
 		handler.ServeHTTP(w, r)
